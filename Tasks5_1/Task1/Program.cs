@@ -9,13 +9,13 @@ void InputArray(int[] array)
 
 void ReleaseArray(int[] array)
 {
-    int evenNumberCount = 0; // чётные числа
+    int evenNumbersCount = 0; // чётные числа
     for(int i = 0; i < array.Length; i++)
     {
         if(array[i] % 2 == 0)
-            evenNumberCount++;
+            evenNumbersCount++;
     }
-    Console.WriteLine($"Количество чётных чисел: " + evenNumberCount);
+    Console.WriteLine($"Количество чётных чисел: " + evenNumbersCount);
 }
 
 Console.Clear();
