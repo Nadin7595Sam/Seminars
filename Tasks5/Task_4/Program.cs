@@ -1,33 +1,26 @@
-﻿Console.Clear();
-
-int[] arr = {1, 5, 4, 3, 2, 6, 7, 1, 1};
-
-void PrintArray(int[] array)
+﻿int n = Convert.ToInt32(Console.ReadLine());
+int countDel = 0, i, j, k, m;
+for (i = 2; i <= n / 2; i++)
 {
-    int count = array.Length;
-    for(int i = 0; i < count; i++)
+    countDel = 0;
+    for (j = 2; j <= i / 2; j++)
     {
-        Console.Write($"{array[i]} ");
+        if (i % j == 0)
+            countDel++;
     }
-    Console.WriteLine();
-}
-
-void SelectionSort(int[] array)
-{
-    for(int i = 0; i < array.Length - 1; i++)
+    if (countDel == 0)
     {
-        int minPosition = i;
-        for(int j = i + 1; j < array.Length; j++)
+        countDel = 0;
+        m = n - i;
+        for (k = 2; k <= (m + 1) / 2; k++)
         {
-            if(array[j] < array[minPosition]) minPosition = j;
+            if (m % k == 0)
+                countDel++;
         }
-        int temporary = array[i];
-        array[i] = array[minPosition];
-        array[minPosition] = temporary;
+        if (countDel == 0)
+        {
+            Console.WriteLine($"{i} {m}");
+            return;
+        }
     }
 }
-
-PrintArray(arr);
-SelectionSort(arr);
-
-PrintArray(arr);
